@@ -20,14 +20,14 @@ export function Main() {
             {(personajes.length === 0) ? (
                 <ActivityIndicator size={"large"} color="#0000ff" />
             ) : (
-                <FlatList >
+                <FlatList 
                     data={personajes}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={
                         ({ item, index }) => (
                             <CharacterCard character={item} index={index} />
                         )
-                    }
+                    }>
                 </FlatList>
             )}
         </>
