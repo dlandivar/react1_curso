@@ -1,22 +1,14 @@
-import { StyleSheet, Text, Pressable, ScrollView } from 'react-native';
-import { View, Image, FlatList, StatusBar } from 'react-native';
-import { Button, TouchableHighlight } from 'react-native-web';
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
-import { use, useEffect, useState } from 'react';
-import { getPersonajes } from './lib/rickyMorty';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import Logo from './components/Logo.jsx';
+import { Main } from './Main.jsx';
+
 
 
 export default function App() {
 
 
-  const [personajes, setPersonales] = useState([]);
 
-  useEffect(() => {
-    getPersonajes().then((data) => {
-      console.log("Personajes:", data);
-      setPersonales(data);
-    })
-  }, []);
 
 
 
@@ -46,30 +38,19 @@ export default function App() {
 
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar style="light" />
-      {personajes.map((character) =>
-      (
-        <View key={character.id} style={styles.card} >
-          <Image source={{ uri: character.image }} style={styles.image} />
-          <Text style={styles.title}>{character.name} </Text>
-          <Text  style={styles.status}>{character.status} </Text>
-          <Text  style={styles.species}>{character.species} </Text>
-          <Text style={styles.gender}>{character.gender}  </Text>
-        </View>)
-      )}
+      <Logo style={styles.logo} />
+      <Main />
 
-    </ScrollView>
-
-
-  )
+    </View>
+  );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-     },
+  },
   image: {
     width: 107,
     height: 147,
@@ -114,11 +95,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'blue',
   },
-   gender: {
+  gender: {
     fontSize: 16,
     color: 'orange',
-     fontWeight: 'bold',
+    fontWeight: 'bold',
+  },
+  logo: {
+    backgroundColor: 'transparent',
+    height: '100%',
+    width: '100%',
+    padding: 20,
   },
 });
 
-//export default App;
