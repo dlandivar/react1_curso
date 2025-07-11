@@ -1,7 +1,7 @@
 {
   "name": "ryckymortin-app",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "expo-roter/entry",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -15,9 +15,15 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.5",
-    "react-native-safe-area-context": "^5.5.1",
+    "react-native-safe-area-context": "5.4.0",
     "react-native-web": "^0.20.0",
-    "react-native-svg": "15.11.2"
+    "react-native-svg": "15.11.2",
+    "expo-router": "~5.1.3",
+    "react-native-screens": "~4.11.1",
+    "expo-linking": "~7.1.7",
+    "expo-constants": "~17.1.7",
+    "expo-font": "~13.3.2",
+    "expo-splash-screen": "~0.30.10"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
