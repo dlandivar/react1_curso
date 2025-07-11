@@ -1,18 +1,25 @@
-import { StatusBar } from "react-native";
+import { StatusBar, Text, TouchableOpacity } from "react-native";
 import { StyleSheet, View } from 'react-native';
 import Logo from '../components/Logo.jsx';
 import { Main } from '../Main.jsx';
+import { Link } from "expo-router";
+
 
 
 export default function index() {
   return (
-      <View style={styles.container}>
-        <StatusBar style="light" />
-        <Logo style={styles.logo} />
-        <Main />
-  
-      </View>
-    );
+    <View style={styles.container}>
+      <StatusBar style="light" />
+      <Logo style={styles.logo} />
+      <Link href="/about" asChild>
+        <TouchableOpacity style={styles.aboutButton}>
+          <Text style={styles.title}>About</Text>
+        </TouchableOpacity>
+      </Link>
+      <Main />
+
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -24,6 +31,10 @@ const styles = StyleSheet.create({
     width: 107,
     height: 147,
     borderRadius: 10,
+  },
+  aboutButton: {
+    backgroundColor: '#6200ee',
+    padding: 10,
   },
   card: {
     backgroundColor: '#fff',
